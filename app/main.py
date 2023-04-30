@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .routers import posts, users, auth, votes
+from .routers import posts, users, auth, votes, bookings, rooms, access, companies
 from . import models
 from .database import engine
 from .config import settings
@@ -23,6 +23,10 @@ app.include_router(posts.router)
 app.include_router(users.router)
 app.include_router(auth.router)
 app.include_router(votes.router)
+app.include_router(bookings.router)
+app.include_router(rooms.router)
+app.include_router(access.router)
+app.include_router(companies.router)
 
 @app.get("/")
 def root():

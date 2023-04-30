@@ -9,6 +9,11 @@ class Settings(BaseSettings):
     secret_key: str
     algorithm: str
     access_token_expire_minutes: int
+    mail_user_name: str
+    mail_password: str
+    mail_from: str
+    mail_port: str
+    mail_server: str
 
     class Config:
         env_file = ".env"

@@ -1,0 +1,14 @@
+[Unit]
+Description=demo fastapi application
+After=network.target
+
+[Service]
+User=shlok
+Group=shlok
+WorkingDirectory=/home/shlok/app/src
+Environment="PATH=/home/shlok/app/venv/bin"
+EnvironmentFile=/home/shlok/.env
+ExecStart=/home/shlok/app/venv/bin/python /home/shlok/app/venv/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
